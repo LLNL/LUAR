@@ -140,6 +140,16 @@ If you use our code base in your work, please consider citing:
 
 For questions about our paper or code, please contact [Rafael A. Rivera Soto](riverasoto1@llnl.gov).
 
+## Acknowledgements
+
+Here's a list of the people who have contributed to this work: 
+- [Olivia Miano](https://github.com/omiano)
+- [Juanita Ordonez](https://github.com/hot-cheeto)
+- Barry Chen
+- [Aleem Khan](https://aleemkhan62.github.io/)
+- [Nicholas Andrews](https://www.cs.jhu.edu/~noa/)
+- Marcus Bishop
+
 ## License
 
 LUAR is distributed under the terms of the Apache License (Version 2.0).
