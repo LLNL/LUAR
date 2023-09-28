@@ -1,6 +1,9 @@
 # Learning Universal Authorship Representations
 
-This is the official repository for the EMNLP 2021 paper "Learning Universal Authorship Representations". The paper studies whether the authorship representations learned in one domain transfer to another. To do so, we conduct the first large-scale study of cross-domain transfer for authorship verification considering zero-shot transfers involving three disparate domains: Amazon Reviews, fanfiction short stories, and Reddit comments.
+This is the official repository for the EMNLP 2021 paper ["Learning Universal Authorship Representations"](https://aclanthology.org/2021.emnlp-main.70/). The paper studies whether the authorship representations learned in one domain transfer to another. To do so, we conduct the first large-scale study of cross-domain transfer for authorship verification considering zero-shot transfers involving three disparate domains: Amazon Reviews, fanfiction short stories, and Reddit comments.
+
+## HuggingFace
+LUAR model variations are now available on HuggingFace! They can be found [here](https://huggingface.co/collections/rrivera1849/luar-65133328387d403b2e6f33a2).
 
 ## Installation
 Run the following commands to create an environment and install all the required packages:
