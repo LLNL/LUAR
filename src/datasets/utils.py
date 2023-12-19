@@ -6,6 +6,7 @@
 import argparse
 
 from datasets.amazon_dataset import AmazonDataset
+from datasets.generic_dataset import GenericDataset
 from datasets.reddit_dataset import RedditDataset
 from datasets.short_stories_dataset import Short_Stories_Dataset
 
@@ -15,6 +16,12 @@ DNAME_TO_CLASS = {
     'raw_amazon': AmazonDataset,
     'pan_paragraph': Short_Stories_Dataset,
 }
+
+def get_class(dataset_name):
+    if dataset_name in DNAME_TO_CLASS:
+        return DNAME_TO_CLASS[dataset_name]
+    else:
+        return GenericDataset
 
 def get_dataset(
     params: argparse.Namespace, 
@@ -47,7 +54,7 @@ def get_train_dataset(
         params (argparse.Namespace): Command-line arguments.
     """
     num_sample_per_author = params.num_sample_per_author
-    dataset_class = DNAME_TO_CLASS[params.dataset_name]
+    dataset_class = get_class(params.dataset_name)
 
     train_dataset = dataset_class(params, 'train', num_sample_per_author)
     return train_dataset
@@ -66,7 +73,7 @@ def get_val_or_test_dataset(
         only_queries (bool, optional): Only read the queries. Defaults to False.
         only_targets (bool, optional): Only read the targets. Defaults to False.
     """
-    dataset_class = DNAME_TO_CLASS[params.dataset_name]
+    dataset_class = get_class(params.dataset_name)
     assert (only_queries == False and only_targets == False) or (only_queries ^ only_targets), "specified both only_queries=True and only_targets=True"
 
     if only_queries:

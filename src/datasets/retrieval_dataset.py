@@ -166,7 +166,7 @@ class RetrievalDataset(Dataset):
 
         return data
 
-    def load_data(self, filename: str):
+    def load_data(self, filename: str, build_byte_count_list=False):
         """Loads in the data specified in `filename` and populates the necessary 
            variables for sampling the dataset.
 
@@ -177,7 +177,7 @@ class RetrievalDataset(Dataset):
         print("Loading {} dataset {} {} file: {}".format(
               self.dataset_name, self.split, query_file, filename))
 
-        if self.params.dataset_name in ["iur_dataset", "raw_all"]:
+        if self.params.dataset_name in ["iur_dataset", "raw_all"] or build_byte_count_list:
             self.build_byte_count_list(filename, load_first_N=self.params.sanity)
             self.num_authors = len(self.byte_count_list)
         else: 
