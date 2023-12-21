@@ -20,7 +20,7 @@ Note: we used some additional data for training that is not publically available
 
 
 ## Limitations
-The classifier is not reliable on short texts (<50 tokens). Even longer texts are sometimes incorrectly labeled by the classifier. Texts longer than 512 tokens (~2,048 characters) will be truncated. The classifier was trained on only English text. Text that is very predictable cannot be reliably identified.  Machine-generated text can be intentionally changed to avoid detection. The classifier does best on text that is similar to the training set, and classifiers have been shown to be poorly calibrated on text very different from their training data. The classifier can mislabel both machine-generated and human-written text, and can be very confident in its decision.
+The classifier is not reliable on short texts (<50 tokens). Even longer texts are sometimes incorrectly labeled by the classifier. Texts longer than 512 tokens (~2,048 characters) will be broken up into 512 token sections and truncated at 10240 tokens total. The sectioned document will be scored as a single document. The classifier was trained on only English text. Text that is very predictable cannot be reliably identified.  Machine-generated text can be intentionally changed to avoid detection. The classifier does best on text that is similar to the training set, and classifiers have been shown to be poorly calibrated on text very different from their training data. The classifier can mislabel both machine-generated and human-written text, and can be very confident in its decision.
 
 ## How To Run
 Download the models by running the command below. You must download the KNN pkl file. If you would like to run this code fully locally, you must clone 2 HuggingFace repositories. If you are online you do not need to locally download the HuggingFace models.
@@ -45,10 +45,10 @@ Then to make predictions on an input JSON lines file of texts, use the commands 
 python inference.py --file_name file.jsonl --threshold 0.7
 
 # To train your own knn:
-python train_luar_knn.py 
+python train_luar_knn.py --file_name file.jsonl --n_neighbors 100
 ```
 
-Each line in the input file should be of the format `{"text": "This is an example text."}`. If training the KNN, each line should be in the format `{"text": "This is a training example text", "labels" : 1}` where 1 = machine and 1 = human.
+Each line in the test file should be of the format `{"text": "This is an example text."}`. If training the KNN, each line of the train file should be in the format `{"text": "This is a training example text", "labels" : 1}` where 1 = machine and 0 = human.
 
 ## Acknowledgements
 This research is supported in part by the Office of the Director of National Intelligence (ODNI), Intelligence Advanced Research Projects Activity (IARPA), via the HIATUS Program contract #D2022-2205150003. The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies, either expressed or implied, of ODNI, IARPA, or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for governmental purposes notwithstanding any copyright annotation therein.
