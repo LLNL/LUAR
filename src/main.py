@@ -39,14 +39,12 @@ def main(params):
     if params.validate:
         limit_val_batches = 1.0
         checkpoint_callback = ModelCheckpoint(
-            dirpath=experiment_dir, 
             monitor="validation_R@8", 
             mode="max"
         )
     else:
         limit_val_batches = 0.0
         checkpoint_callback = ModelCheckpoint(
-            dirpath=experiment_dir, 
             monitor=None, 
             save_top_k=-1, 
             every_n_epochs=params.period
@@ -69,7 +67,7 @@ def main(params):
         default_root_dir=experiment_dir, 
         max_epochs=params.num_epoch,
         logger=logger,
-        enable_checkpointing=checkpoint_callback,
+        callbacks=[checkpoint_callback],
         gpus=params.gpus, 
         strategy='dp' if params.gpus > 1 else None, 
         precision=params.precision,
