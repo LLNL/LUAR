@@ -31,11 +31,10 @@ Follow the instructions [here](https://git-lfs.github.com) to install git lfs.
 Reddit has changed their [Data API terms](https://www.redditinc.com/policies/data-api-terms) to disallow the use of user-data to train machine learning models unless permission is explicitly granted by the original poster. 
 As such, we're only providing the comment identifiers of the posts used to train our models:
 
-| Dataset Name | Download Link                                                                         |   |   |   |
-|--------------|---------------------------------------------------------------------------------------|---|---|---|
-| [IUR](https://arxiv.org/abs/1910.04979)          | https://cs.jhu.edu/~noa/data/reddit.tar.gz                                            |   |   |   |
-| [MUD](https://arxiv.org/abs/2105.07263)          | https://drive.google.com/file/d/16YgK62cpe0NC7zBvSF_JxosOozG-wxou/view?usp=drive_link |   |   |   |
-|              |                                                                                       |   |   |   |
+|               Dataset Name              |                                     Download Link                                     |
+|:---------------------------------------:|:-------------------------------------------------------------------------------------:|
+| [IUR](https://arxiv.org/abs/1910.04979) | https://cs.jhu.edu/~noa/data/reddit.tar.gz                                            |
+| [MUD](https://arxiv.org/abs/2105.07263) | https://drive.google.com/file/d/16YgK62cpe0NC7zBvSF_JxosOozG-wxou/view?usp=drive_link |
 
 ### Amazon
 
